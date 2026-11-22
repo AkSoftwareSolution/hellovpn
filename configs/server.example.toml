@@ -1,0 +1,42 @@
+# HelloVPN Server Configuration
+# Save as: /etc/hvpn/server.toml
+# File permissions: chmod 600 (readable only by root/hvpn user)
+
+[server]
+listen = "0.0.0.0"
+port   = 51820
+# transport = ["udp", "tcp"]  # enable both; udp is tried first
+transport = ["udp"]
+
+[server.keys]
+# Path to the server's X25519 private key (32 raw bytes, base64url encoded in file)
+# Generate with: hvpn key generate --role server --out /etc/hvpn/server_private.key
+private_key_file = "/etc/hvpn/server_private.key"
+
+[server.network]
+tun_name  = "hvpn0"
+ipv4_pool = "10.10.0.0/24"   # Assigned to connected clients
+mtu       = 1420
+dns       = ["1.1.1.1", "1.0.0.1"]
+
+[server.limits]
+max_clients    = 100
+handshake_timeout_secs = 10
+session_timeout_secs   = 90    # Drop session if no packet received for 90s
+keepalive_secs         = 25
+max_handshakes_per_min_per_ip = 5   # Rate limit: 5 handshake attempts/min/IP
+
+# ---------------------------------------------------------------------------
+# Registered clients (allow-list)
+# A client NOT listed here will be rejected after Noise authentication.
+# ---------------------------------------------------------------------------
+
+[[peers]]
+name        = "alice-laptop"
+public_key  = "REPLACE_WITH_BASE64URL_PUBLIC_KEY_OF_ALICE"
+allowed_ips = ["10.10.0.2/32"]
+
+[[peers]]
+name        = "bob-phone"
+public_key  = "REPLACE_WITH_BASE64URL_PUBLIC_KEY_OF_BOB"
+allowed_ips = ["10.10.0.3/32"]

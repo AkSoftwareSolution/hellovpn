@@ -1,0 +1,22 @@
+[package]
+name = "hello-client"
+version = "0.1.0"
+edition = "2021"
+description = "HelloVPN - Linux VPN client daemon and tunnel manager"
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+hello-core      = { path = "../hello-core" }
+hello-protocol  = { path = "../hello-protocol" }
+hello-crypto    = { path = "../hello-crypto" }
+hello-config    = { path = "../hello-config" }
+hello-handshake = { path = "../hello-handshake" }
+hello-packet    = { path = "../hello-packet" }
+hello-transport = { path = "../hello-transport" }
+hello-session   = { path = "../hello-session" }
+hello-tun       = { path = "../hello-tun" }
+hello-routing   = { path = "../hello-routing" }
+tokio           = { workspace = true }
+tracing         = { workspace = true }
+thiserror       = { workspace = true }
+base64          = { workspace = true }

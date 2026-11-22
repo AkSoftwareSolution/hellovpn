@@ -1,0 +1,19 @@
+[package]
+name = "hvpn-client"
+version = "0.1.0"
+edition = "2021"
+description = "HelloVPN Client binary"
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+hello-core         = { path = "../../crates/hello-core" }
+hello-client       = { path = "../../crates/hello-client" }
+hello-config       = { path = "../../crates/hello-config" }
+hello-crypto       = { path = "../../crates/hello-crypto" }
+hello-transport    = { path = "../../crates/hello-transport" }
+hello-routing      = { path = "../../crates/hello-routing" }
+hello-tun          = { path = "../../crates/hello-tun" }
+clap               = { workspace = true }
+tokio              = { workspace = true }
+tracing            = { workspace = true }
+tracing-subscriber = { workspace = true }

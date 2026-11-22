@@ -1,0 +1,13 @@
+[package]
+name = "hello-packet"
+version = "0.1.0"
+edition = "2021"
+description = "HelloVPN - Typed packet builder, parser, and AEAD codec"
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+hello-core     = { path = "../hello-core" }
+hello-protocol = { path = "../hello-protocol" }
+hello-crypto   = { path = "../hello-crypto" }
+bytes          = { workspace = true }
+thiserror      = { workspace = true }

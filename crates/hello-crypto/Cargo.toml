@@ -1,0 +1,15 @@
+[package]
+name = "hello-crypto"
+version = "0.1.0"
+edition = "2021"
+description = "HelloVPN - Cryptographic primitives: key management, AEAD, replay window, nonce"
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+hello-core     = { path = "../hello-core" }
+hello-protocol = { path = "../hello-protocol" }
+snow           = { workspace = true }
+zeroize        = { workspace = true }
+base64         = { workspace = true }
+thiserror      = { workspace = true }
+rand_core      = { workspace = true }

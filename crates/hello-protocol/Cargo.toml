@@ -1,0 +1,16 @@
+
+[package]
+name = "hello-protocol"
+version = "0.1.0"
+edition = "2024"
+description = "HelloVPN custom packet protocol library"
+license = "MIT"
+
+[lib]
+name = "hello_protocol"
+path = "src/lib.rs"
+
+[dependencies]
+hello-core = { path = "../hello-core" }
+snow       = "0.10.0"
+

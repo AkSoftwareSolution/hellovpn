@@ -1,0 +1,11 @@
+[package]
+name = "hvpn"
+version = "0.1.0"
+edition = "2021"
+description = "HelloVPN CLI binary"
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+hello-cli = { path = "../../crates/hello-cli" }
+clap      = { workspace = true }
+tokio     = { workspace = true }

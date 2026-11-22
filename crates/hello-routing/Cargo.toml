@@ -1,0 +1,12 @@
+[package]
+name = "hello-routing"
+version = "0.1.0"
+edition = "2021"
+description = "HelloVPN - Linux IP routing, DNS configuration, and kill switch"
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+hello-core = { path = "../hello-core" }
+tokio      = { workspace = true }
+tracing    = { workspace = true }
+thiserror  = { workspace = true }

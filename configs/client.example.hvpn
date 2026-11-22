@@ -1,0 +1,52 @@
+# HelloVPN Client Configuration
+# File extension: .hvpn
+# SECURITY: This file does NOT contain your private key.
+#   Private keys are stored in your OS keychain or in a separate
+#   permission-restricted key file (chmod 600).
+
+protocol = "hellovpn"
+version  = 1
+
+[connection]
+server    = "vpn.example.com"
+port      = 51820
+transport = "udp"       # "udp" (default) or "tcp" (fallback)
+
+[security]
+# Noise pattern — must match server
+handshake = "Noise_IK_25519_ChaChaPoly_BLAKE2s"
+
+# Server's static X25519 public key in base64url format.
+# Obtain this from your server operator; verify its authenticity out-of-band.
+server_public_key = "REPLACE_WITH_BASE64URL_SERVER_PUBLIC_KEY"
+
+# Your client's public key (for registration with the server operator).
+# This is NOT secret — share it with your server admin.
+client_public_key = "REPLACE_WITH_BASE64URL_YOUR_PUBLIC_KEY"
+
+# Path to your private key file (chmod 600).
+# Or leave empty to use OS keychain (platform dependent).
+# NEVER put the actual private key contents in this file.
+# private_key_file = "~/.config/hvpn/alice-laptop.key"
+
+[network]
+# IP address assigned to this client on the VPN network
+ipv4 = "10.10.0.2/24"
+# ipv6 = "fd00::2/64"    # optional
+
+# DNS servers pushed through the VPN
+dns  = ["1.1.1.1", "1.0.0.1"]
+
+# Routes to send through the VPN tunnel
+# "0.0.0.0/0" = route all traffic (full tunnel)
+# Specific subnets = split tunnel
+routes = ["0.0.0.0/0"]
+
+mtu = 1420
+
+[client]
+# Human-readable device name (sent to server for logging)
+name      = "alice-laptop"
+
+# Keepalive interval in seconds (must be < server session_timeout_secs)
+keepalive = 25

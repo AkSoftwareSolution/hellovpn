@@ -1,0 +1,18 @@
+[package]
+name = "hello-cli"
+version = "0.1.0"
+edition = "2021"
+description = "HelloVPN - CLI command parser and interactive tooling"
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+hello-core      = { path = "../hello-core" }
+hello-crypto    = { path = "../hello-crypto" }
+hello-config    = { path = "../hello-config" }
+hello-client    = { path = "../hello-client" }
+hello-server    = { path = "../hello-server" }
+clap            = { workspace = true }
+tokio           = { workspace = true }
+tracing         = { workspace = true }
+thiserror       = { workspace = true }
+base64          = { workspace = true }

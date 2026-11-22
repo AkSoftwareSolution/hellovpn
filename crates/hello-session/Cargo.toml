@@ -1,0 +1,15 @@
+[package]
+name = "hello-session"
+version = "0.1.0"
+edition = "2021"
+description = "HelloVPN - Session state machine and multi-client session manager"
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+hello-core     = { path = "../hello-core" }
+hello-crypto   = { path = "../hello-crypto" }
+hello-packet   = { path = "../hello-packet" }
+hello-protocol = { path = "../hello-protocol" }
+tokio          = { workspace = true }
+tracing        = { workspace = true }
+thiserror      = { workspace = true }

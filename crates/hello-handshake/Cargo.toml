@@ -1,0 +1,16 @@
+[package]
+name = "hello-handshake"
+version = "0.1.0"
+edition = "2021"
+description = "HelloVPN - Async Noise IK handshake orchestration"
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+hello-core     = { path = "../hello-core" }
+hello-protocol = { path = "../hello-protocol" }
+hello-crypto   = { path = "../hello-crypto" }
+snow           = { workspace = true }
+tokio          = { workspace = true }
+rand_core      = { workspace = true }
+tracing        = { workspace = true }
+thiserror      = { workspace = true }
